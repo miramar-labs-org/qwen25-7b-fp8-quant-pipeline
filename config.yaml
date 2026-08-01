@@ -1,1 +1,18 @@
-description: ""   # One sentence — shown in KFP Pipelines + KFP Experiments UI
+description: "FP8 post-training quantization of Qwen2.5-7B-Instruct via nvidia-modelopt on DGX Spark"
+
+model:
+  id: Qwen/Qwen2.5-7B-Instruct
+
+quantization:
+  qformat: fp8
+  kv_cache_qformat: none
+  calib_dataset: cnn_dailymail
+  calib_size: 512
+  calib_seq: 512
+
+eval:
+  tasks: [winogrande, arc_easy, piqa]
+  num_fewshot: 5
+  batch_size: 16
+  accuracy_delta_threshold: -0.02
+  vllm_port: 8000

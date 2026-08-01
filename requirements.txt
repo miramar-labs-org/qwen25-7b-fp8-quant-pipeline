@@ -18,4 +18,9 @@ python-dotenv
 nvidia-modelopt[hf]
 lm_eval
 vllm
+compressed-tensors
+fire
+transformers_stream_generator
+zstandard
 kfp>=2.0.0
+kfp-kubernetes
